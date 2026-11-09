@@ -1,0 +1,13 @@
+---
+import { getCollection } from "astro:content";
+import Base from "../layouts/Base.astro";
+import Idea from "../components/Idea.astro";
+
+const ideas = (await getCollection("ideas")).sort(
+  (a, b) => b.data.date.getTime() - a.data.date.getTime()
+);
+---
+<Base>
+  {ideas.length === 0 && <p class="empty">هنوز ایده‌ای ثبت نشده.</p>}
+  {ideas.map((idea) => <Idea idea={idea} />)}
+</Base>

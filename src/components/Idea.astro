@@ -1,0 +1,31 @@
+---
+import { render } from "astro:content";
+import { faDate, faTime, url } from "../lib/format";
+
+const { idea } = Astro.props;
+const { Content } = await render(idea);
+const { title, date, abc, photo } = idea.data;
+---
+<article class="idea">
+  <header>
+    <h2><a href={url(`ideas/${idea.id}/`)}>{title}</a></h2>
+    <time datetime={date.toISOString()}>{faDate(date)} · ساعت {faTime(date)}</time>
+  </header>
+
+  {abc && (
+    <div class="notation-block">
+      <div class="notation" dir="ltr"></div>
+      <div class="player" dir="ltr"></div>
+      <script is:inline type="text/plain" class="abc-source" set:html={abc}></script>
+    </div>
+  )}
+
+  <div class="text"><Content /></div>
+
+  {photo && (
+    <details class="original">
+      <summary>دست‌نویس اصلی</summary>
+      <img src={url(photo)} alt={`دست‌نویس ${title}`} loading="lazy" />
+    </details>
+  )}
+</article>

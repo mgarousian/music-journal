@@ -1,0 +1,26 @@
+---
+import { url } from "../lib/format";
+const { title = "ژورنال موسیقی" } = Astro.props;
+---
+<!doctype html>
+<html lang="fa" dir="rtl">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{title}</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;500&display=swap" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/abcjs@6.4.4/abcjs-audio.css" />
+    <link rel="stylesheet" href={url("style.css")} />
+  </head>
+  <body>
+    <header class="site">
+      <a href={url("/")}>ژورنال موسیقی</a>
+    </header>
+    <main>
+      <slot />
+    </main>
+    <script is:inline src="https://cdn.jsdelivr.net/npm/abcjs@6.4.4/dist/abcjs-basic-min.js"></script>
+    <script is:inline src={url("notation.js")}></script>
+  </body>
+</html>

@@ -1,0 +1,15 @@
+---
+import { getCollection } from "astro:content";
+import Base from "../../layouts/Base.astro";
+import Idea from "../../components/Idea.astro";
+
+export async function getStaticPaths() {
+  const ideas = await getCollection("ideas");
+  return ideas.map((idea) => ({ params: { id: idea.id }, props: { idea } }));
+}
+
+const { idea } = Astro.props;
+---
+<Base title={`${idea.data.title} · ژورنال موسیقی`}>
+  <Idea idea={idea} />
+</Base>
