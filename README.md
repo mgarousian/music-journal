@@ -57,3 +57,8 @@ npm run dev
 ```
 
 بعد `http://localhost:4321` را باز کنید.
+
+## مجوز
+
+- **کد** پروژه: [MIT](LICENSE)
+- **محتوا** (ایده‌ها، نت‌ها، متن‌ها در `src/content/ideas` و تصاویر در `public/photos`): [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/)

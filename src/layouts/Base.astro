@@ -20,6 +20,11 @@ const { title = "ژورنال موسیقی" } = Astro.props;
     <main>
       <slot />
     </main>
+    <footer class="site">
+      نت‌ها، متن‌ها و تصاویر این ژورنال تحت مجوز
+      <a href="https://creativecommons.org/licenses/by/4.0/deed.fa" rel="license">CC BY 4.0</a>
+      منتشر شده‌اند.
+    </footer>
     <script is:inline src="https://cdn.jsdelivr.net/npm/abcjs@6.4.4/dist/abcjs-basic-min.js"></script>
     <script is:inline src={url("notation.js")}></script>
   </body>
